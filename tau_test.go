@@ -45,13 +45,19 @@ func TestTau(t *testing.T) {
 			in:   newTestTime("2016-11-26 16:47", "1985-03-20 15:00"),
 			want: Tau(1000000020),
 		},
+		{
+			in:   newTestTime("2019-03-10 18:34", "1955-10-24 15:00"),
+			want: Tau(2000000040),
+		},
 	}
+
 	for i, tt := range cases {
 		out := TauSince(tt.in)
 		if tt.want != out {
 			t.Errorf("[%d] TauSince(%v) => %v; want %v\n", i, tt.in, out, tt.want)
 		}
 	}
+
 }
 
 func TestMegaTau(t *testing.T) {
@@ -78,6 +84,18 @@ func TestMegaTau(t *testing.T) {
 		{
 			in:   newTestTime("2016-11-26 16:47", "1985-03-20 15:00"),
 			want: MegaTau(1000),
+		},
+		{
+			in:   newTestTime("2014-12-03 17:47", "1983-03-27 15:00"),
+			want: MegaTau(1000),
+		},
+		{
+			in:   newTestTime("2015-06-26 15:00", "1983-03-27 15:00"),
+			want: MegaTau(1017),
+		},
+		{
+			in:   newTestTime("2015-06-26 15:00", "1985-03-20 15:00"),
+			want: MegaTau(955),
 		},
 		{
 			// TODO(hkjn): This is the largest time span that can be
@@ -111,6 +129,10 @@ func TestGigaTau(t *testing.T) {
 		{
 			in:   newTestTime("2016-11-26 16:47", "1985-03-20 15:00"),
 			want: GigaTau(1),
+		},
+		{
+			in:   newTestTime("2019-03-10 18:34", "1955-10-24 15:00"),
+			want: GigaTau(2),
 		},
 		{
 			in:   newTestTime("2277-06-25 07:26", "1985-03-20 15:00"),
