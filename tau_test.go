@@ -1,10 +1,9 @@
 package tau
 
 import (
+	"log"
 	"testing"
 	"time"
-
-	"hkjn.me/timeutils"
 )
 
 type TestTime struct {
@@ -18,9 +17,18 @@ func (t TestTime) Since() Tau {
 
 // newTestTime creates a deterministic TestTime for given value and current time.
 func newTestTime(current, value string) TestTime {
+	layout := "2006-01-02 15:04" // a simple time layout
+	parse := func(s string) time.Time {
+		t, err := time.Parse(layout, s)
+		if err != nil {
+			log.Fatalf("got err: %v\n", err)
+		}
+		return t
+
+	}
 	return TestTime{
-		Time:    timeutils.Must(timeutils.ParseStd(value)),
-		current: timeutils.Must(timeutils.ParseStd(current)),
+		Time:    parse(value),
+		current: parse(current),
 	}
 }
 
