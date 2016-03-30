@@ -22,20 +22,19 @@ type (
 		Since() Tau
 	}
 	// ClockTime implements Time using time.Time.
-	ClockTime struct {
-		// Note: This limits the largest time span to 290 years.
-		time.Time
-	}
+	//
+	// Note: This limits the largest time span to 290 years.
+	ClockTime time.Time
 )
 
 // Since returns the Tau that's passed since the instant.
 func (t ClockTime) Since() Tau {
-	return Tau(time.Since(t.Time) / 1e9)
+	return Tau(time.Since(time.Time(t)) / 1e9)
 }
 
 // newClockTime returns a new clock time from given value.
 func newClockTime(value string) ClockTime {
-	return ClockTime{timeutils.Must(timeutils.ParseStd(value))}
+	return ClockTime(timeutils.Must(timeutils.ParseStd(value)))
 }
 
 // Mega returns the MegaTau.
