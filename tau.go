@@ -1,11 +1,7 @@
 // Package tau deals with units of time.
 package tau
 
-import (
-	"time"
-
-	"hkjn.me/timeutils"
-)
+import "time"
 
 type (
 	// Tau represents τ, a duration in number of seconds.
@@ -30,11 +26,6 @@ type (
 // Since returns the Tau that's passed since the instant.
 func (t ClockTime) Since() Tau {
 	return Tau(time.Since(time.Time(t)) / 1e9)
-}
-
-// newClockTime returns a new clock time from given value.
-func newClockTime(value string) ClockTime {
-	return ClockTime(timeutils.Must(timeutils.ParseStd(value)))
 }
 
 // Mega returns the MegaTau.
