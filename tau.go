@@ -18,7 +18,7 @@ type (
 	TeraTau int64
 	// Time represents an instant in time.
 	Time interface {
-		// Since returns the Tau that's passed since the instant.
+		// Since returns the Tau that's currently passed since the instant.
 		Since() Tau
 	}
 	// ClockTime implements Time using time.Time.
