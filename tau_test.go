@@ -106,8 +106,12 @@ func TestMegaTau(t *testing.T) {
 			want: MegaTau(1000),
 		},
 		{
-			in:   newTestTime("2015-06-26 15:00", "1983-03-27 15:00"),
-			want: MegaTau(1017),
+			in:   newTestTime("2016-07-04 12:00", "1983-03-27 15:00"),
+			want: MegaTau(1050),
+		},
+		{
+			in:   newTestTime("2018-02-03 12:00", "1983-03-27 15:00"),
+			want: MegaTau(1100),
 		},
 		{
 			in:   newTestTime("2015-06-26 15:00", "1985-03-20 15:00"),
