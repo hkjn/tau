@@ -157,6 +157,10 @@ func TestGigaTau(t *testing.T) {
 			want: GigaTau(1),
 		},
 		{
+			in:   newTestTime("2019-03-10 19:00", "1955-10-24 15:00"),
+			want: GigaTau(2),
+		},
+		{
 			in:   newTestTime("2019-03-10 18:34", "1955-10-24 15:00"),
 			want: GigaTau(2),
 		},
