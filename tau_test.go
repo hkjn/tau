@@ -281,11 +281,12 @@ func ExampleClockTime_AddTau() {
 		fmt.Printf("After %d mt: %v\n", mt, t1)
 	}
 
-	t1 := t0.AddTau(MegaTau(950).Tau())
+	start := 1000
+	t1 := t0.AddTau(MegaTau(start).Tau())
 	fmt.Printf("Time t1 is %v\n", t1)
-	for mt := 1; mt <= 5; mt += 1 {
+	for mt := 1; mt <= 15; mt += 1 {
 		t2 := t1.AddTau(MegaTau(mt).Tau())
-		fmt.Printf("[%d] After %d mt: %v\n", 950+mt, mt, t2)
+		fmt.Printf("[%d] After %d mt: %v\n", start+mt, mt, t2)
 	}
 	// Output: Time t0 is 1985-03-20 15:00:00 +0000 UTC
 	// After 900 mt: 2013-09-26 07:00:00 +0000 UTC
@@ -295,10 +296,20 @@ func ExampleClockTime_AddTau() {
 	// After 1100 mt: 2020-01-28 02:33:20 +0000 UTC
 	// After 1150 mt: 2021-08-28 19:26:40 +0000 UTC
 	// After 1200 mt: 2023-03-30 12:20:00 +0000 UTC
-	// Time t1 is 2015-04-27 23:53:20 +0000 UTC
-	// [951] After 1 mt: 2015-05-09 13:40:00 +0000 UTC
-	// [952] After 2 mt: 2015-05-21 03:26:40 +0000 UTC
-	// [953] After 3 mt: 2015-06-01 17:13:20 +0000 UTC
-	// [954] After 4 mt: 2015-06-13 07:00:00 +0000 UTC
-	// [955] After 5 mt: 2015-06-24 20:46:40 +0000 UTC
+	// Time t1 is 2016-11-26 16:46:40 +0000 UTC
+	// [1001] After 1 mt: 2016-12-08 06:33:20 +0000 UTC
+	// [1002] After 2 mt: 2016-12-19 20:20:00 +0000 UTC
+	// [1003] After 3 mt: 2016-12-31 10:06:40 +0000 UTC
+	// [1004] After 4 mt: 2017-01-11 23:53:20 +0000 UTC
+	// [1005] After 5 mt: 2017-01-23 13:40:00 +0000 UTC
+	// [1006] After 6 mt: 2017-02-04 03:26:40 +0000 UTC
+	// [1007] After 7 mt: 2017-02-15 17:13:20 +0000 UTC
+	// [1008] After 8 mt: 2017-02-27 07:00:00 +0000 UTC
+	// [1009] After 9 mt: 2017-03-10 20:46:40 +0000 UTC
+	// [1010] After 10 mt: 2017-03-22 10:33:20 +0000 UTC
+	// [1011] After 11 mt: 2017-04-03 00:20:00 +0000 UTC
+	// [1012] After 12 mt: 2017-04-14 14:06:40 +0000 UTC
+	// [1013] After 13 mt: 2017-04-26 03:53:20 +0000 UTC
+	// [1014] After 14 mt: 2017-05-07 17:40:00 +0000 UTC
+	// [1015] After 15 mt: 2017-05-19 07:26:40 +0000 UTC
 }
